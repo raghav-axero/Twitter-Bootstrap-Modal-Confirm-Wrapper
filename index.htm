@@ -18,7 +18,8 @@
             });
             $('#ConfirmButton2').on('click', function (e) {
                 $.confirm('Are you sure you want to proceed?', {
-                    title:'Confirm dialog'
+                    title:'Confirm dialog',
+                    width:600
                 });
             });
             $('#ConfirmButton3').on('click', function (e) {
@@ -34,10 +35,10 @@
                     confirmButtonText: 'Yes, I want to',
                     cancelButtonText: 'No, I am not',
                     onConfirm:function() {
-                        
+                        console.log('You selected confirm button');
                     },
                     onCancel:function() {
-                        
+                        console.log('You selected cancel button');
                     },                    
                 });
             });              
@@ -110,3 +111,4 @@
         </script>
     </body>
 </html>
+​

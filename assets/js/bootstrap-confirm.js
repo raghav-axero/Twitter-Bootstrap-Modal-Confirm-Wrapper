@@ -63,7 +63,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             confirmButton.on('click', function() {
                 if (options.onConfirm != null) {
                     options.onConfirm();
-                    if (hideOnConfirm) {
+                    if (options.hideOnConfirm) {
                         modal.modal('hide');
                     }
                 }
@@ -84,7 +84,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             footer.append(cancelButton);
             modal.append(footer);
         }
-        
+
         // Show modal
         modal.modal(options);
     };
@@ -105,7 +105,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         hideOnConfirm: true,
 
         // Placeholder for modal.
-        container: '<div class="modal"></div>',
+        container: '<div class="modal" style="width:760px;"></div>',
         
         // Placeholder for header.
         headerContainer: '<div class="modal-header"></div>',
