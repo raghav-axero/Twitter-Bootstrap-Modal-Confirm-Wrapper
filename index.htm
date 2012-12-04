@@ -2,11 +2,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
-    <script src="assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <title>Twitter Bootstrap modal | Confirm modal wrapper</title>
+    
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet" />
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap.js" type="text/javascript"></script>
     <script src="assets/js/bootstrap-confirm.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
@@ -14,23 +17,96 @@
                 $.confirm('This is a simple confirm message.');
             });
             $('#ConfirmButton2').on('click', function (e) {
-                $.confirm('Are you sure you want to proceed', {
+                $.confirm('Are you sure you want to proceed?', {
                     title:'Confirm dialog'
                 });
             });
+            $('#ConfirmButton3').on('click', function (e) {
+                $.confirm('Are you sure you want to proceed?', {
+                    title: 'Confirm dialog',
+                    confirmButtonText: 'Yes, I want to',
+                    cancelButtonText: 'No, I am not'
+                });
+            });
+            $('#ConfirmButton4').on('click', function (e) {
+                $.confirm('Are you sure you want to proceed?', {
+                    title: 'Confirm dialog',
+                    confirmButtonText: 'Yes, I want to',
+                    cancelButtonText: 'No, I am not',
+                    onConfirm:function() {
+                        
+                    },
+                    onCancel:function() {
+                        
+                    },                    
+                });
+            });              
         });
     </script>
 </head>
-<body>
-    <div class="row">
-        <div class="span12">
-            <button id="ConfirmButton1" class="btn btn-primary">Show</button>
+    <body>
+        <div class="container">
+            <div class="hero-unit">
+        <h1>Twitter Bootstrap confirm modal</h1>
+        <p>A simple wrapper for confirm modal based Twitter Bootstrap modal.</p>
+        
+      </div>
+            <div class="row">
+                <div class="span12">
+                    <h3>Basic example</h3>
+                    <pre class="prettyprint">
+    $('#ConfirmButton1').on('click', function(e) {
+        $.confirm('This is a simple confirm message.');
+    });</pre>
+                    <p><button id="ConfirmButton1" class="btn btn-primary">View demo</button></p>
+                </div>
+            <br/><br/>
+                <div class="span12">
+                    <h3>Add custom title</h3>
+                    <pre class="prettyprint">
+    $('#ConfirmButton2').on('click', function (e) {
+        $.confirm('Are you sure you want to proceed?', {
+            title:'Confirm dialog'
+        });
+    });</pre>                    
+                    <p><button id="ConfirmButton2" class="btn btn-primary">View demo</button></p>
+                </div>
+            <br/><br/>
+                <div class="span12">
+                    <h3>Modify button's text</h3>
+                    <pre class="prettyprint">
+    $('#ConfirmButton3').on('click', function (e) {
+        $.confirm('Are you sure you want to proceed?', {
+            title: 'Confirm dialog',
+            confirmButtonText: 'Yes, I want to',
+            cancelButtonText: 'No, I am not'
+        });
+    });</pre>                    
+                    <p><button id="ConfirmButton3" class="btn btn-primary">View demo</button></p>
+                </div>
+            <br/><br/>
+                <div class="span12">
+                    <h3>Add button's callbacks</h3>
+                    <pre class="prettyprint">
+    $('#ConfirmButton4').on('click', function (e) {
+        $.confirm('Are you sure you want to proceed?', {
+            title: 'Confirm dialog',
+            confirmButtonText: 'Yes, I want to',
+            cancelButtonText: 'No, I am not',
+            onConfirm:function() {
+                        
+            },
+            onCancel:function() {
+                        
+            },                    
+        });
+    });</pre>                    
+                    <p><button id="ConfirmButton4" class="btn btn-primary">View demo</button></p>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="span12">
-            <button id="ConfirmButton2" class="btn btn-primary">Show</button>
-        </div>
-    </div>
-</body>
+        <script type="text/javascript">
+            prettyPrint();
+        </script>
+    </body>
 </html>
