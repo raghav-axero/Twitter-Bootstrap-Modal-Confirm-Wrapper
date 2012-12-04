@@ -105,7 +105,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         hideOnConfirm: true,
 
         // Placeholder for modal.
-        container: '<div class="modal" style="width:760px;"></div>',
+        container: '<div class="modal"></div>',
         
         // Placeholder for header.
         headerContainer: '<div class="modal-header"></div>',
