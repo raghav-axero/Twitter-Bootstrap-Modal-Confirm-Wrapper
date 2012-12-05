@@ -39,7 +39,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         // Append header
         if (options.title && options.showHeader) {
             title.append(options.title);
-            header.append(options.headerCloseButton);
+            if (options.showHeaderCloseButton) {
+                header.append(options.headerCloseButton);
+            }
             header.append(title);
             modal.append(header);
         }
@@ -56,7 +58,16 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         
         // Append footer
         if (options.showFooter) {
-            confirmButton.html(options.confirmButtonText);
+            var confirmButtonHtml = null;
+            if (options.confirmButtonIcon) {
+                confirmButtonHtml = options.confirmButtonIcon;
+            }
+            if (options.confirmButtonText) {
+                confirmButtonHtml = (confirmButtonHtml)
+                    ? confirmButtonHtml + ' ' + options.confirmButtonText
+                    : options.confirmButtonText;
+            }
+            confirmButton.html(confirmButtonHtml);
             if (options.confirmButtonClass) {
                 confirmButton.addClass(options.confirmButtonClass);
             }
@@ -68,20 +79,34 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                     }
                 }
             });
-  	
-            cancelButton.html(options.cancelButtonText);
+
+            var cancelButtonHtml = null;
+            if (options.confirmButtonIcon) {
+                cancelButtonHtml = options.cancelButtonIcon;
+            }
+            if (options.confirmButtonText) {
+                cancelButtonHtml = (cancelButtonHtml)
+                    ? cancelButtonHtml + ' ' + options.cancelButtonText
+                    : options.cancelButtonText;
+            }
+            cancelButton.html(cancelButtonHtml);
             if (options.cancelButtonClass) {
                 cancelButton.addClass(options.cancelButtonClass);
             }
-            
+
             cancelButton.on('click', function() {
                 if (options.onCancel != null) {
                     options.onCancel();
                     modal.modal('hide');
                 }
             });
-            footer.append(confirmButton);
-            footer.append(cancelButton);
+            if (options.reverseButtonsOrder) {
+                footer.append(cancelButton);
+                footer.append(confirmButton);
+            } else {
+                footer.append(confirmButton);
+                footer.append(cancelButton);
+            }
             modal.append(footer);
         }
 
@@ -98,7 +123,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         
         // True to show the footer, false to hide it
         showFooter: true,
-        
+
+        // True to show the header close button, false to hide it
+        showHeaderCloseButton: true,        
         // True to hide modal after confirm callback is complete. 
         // Set this to false if the confirm callback contains ajax call 
         // and hide the modal manually in the success callback of ajax call.
@@ -128,6 +155,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         // Confirm button in footer
         confirmButton: '<button id="EditFilePropertiesModalSaveButton" class="btn"></button>',
         
+        // Icon to show on confirm button
+        confirmButtonIcon: null,
+        
         // Display text for confirm button
         confirmButtonText: 'Yes',
         
@@ -136,6 +166,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         
         // Cancel button in footer
         cancelButton: '<button class="btn" data-dismiss="modal" aria-hidden="true"></button>',
+
+        // Icon to show on cancel button
+        cancelButtonIcon: null,
         
         // Display text for cancel button
         cancelButtonText: 'No',
@@ -147,7 +180,10 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         onConfirm:null,
         
         // Callback method on cancel button click
-        onCancel: null
+        onCancel: null,
+        
+        // True to reverse the buttons order. By default confirm button will come left to cancel button. 
+        reverseButtonsOrder:false,
     };
     
     $.fn.confirm = function(options) {

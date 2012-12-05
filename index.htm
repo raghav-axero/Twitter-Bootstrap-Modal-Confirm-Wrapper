@@ -38,9 +38,51 @@
                     },
                     onCancel:function() {
                         console.log('You selected cancel button');
-                    },                    
+                    }
                 });
-            });              
+            });
+            $('#ConfirmButton5').on('click', function (e) {
+                $.confirm('Are you sure you want to proceed?', {
+                    title: 'Confirm dialog',
+                    confirmButtonText: 'Yes',
+                    cancelButtonText: 'No',
+                    confirmButtonClass: 'btn-info',
+                    cancelButtonClass: 'btn-danger'
+                });
+            });
+            $('#ConfirmButton6').on('click', function (e) {
+                $.confirm('Are you sure you want to proceed?', {
+                    title: 'Confirm dialog',
+                    confirmButtonText: 'Yes',
+                    cancelButtonText: 'No',
+                    showHeaderCloseButton: false
+                });
+            });
+            $('#ConfirmButton7').on('click', function (e) {
+                $.confirm('Are you sure you want to proceed?', {
+                    title: 'Confirm dialog',
+                    confirmButtonText: 'Yes',
+                    cancelButtonText: 'No',
+                    showHeader: false
+                });
+            });
+            $('#ConfirmButton8').on('click', function (e) {
+                $.confirm('Are you sure you want to proceed?', {
+                    title: 'Confirm dialog',
+                    confirmButtonText: 'Yes',
+                    cancelButtonText: 'No',
+                    confirmButtonIcon: '<i class="icon-user icon-white"></i>',
+                    cancelButtonIcon: '<i class="icon-trash icon-black"></i>'
+                });
+            });
+            $('#ConfirmButton9').on('click', function (e) {
+                $.confirm('Are you sure you want to proceed?', {
+                    title: 'Confirm dialog',
+                    confirmButtonText: 'Yes',
+                    cancelButtonText: 'No',
+                    reverseButtonsOrder: true
+                });
+            });            
         });
     </script>
 </head>
@@ -102,6 +144,73 @@
         });
     });</pre>                    
                     <p><button id="ConfirmButton4" class="btn btn-primary">View demo</button></p>
+                </div>
+                <div class="span12">
+                    <h3>Add custom class to buttons</h3>
+                    <pre class="prettyprint">
+    $('#ConfirmButton5').on('click', function (e) {
+        $.confirm('Are you sure you want to proceed?', {
+            title: 'Confirm dialog',
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No',
+            confirmButtonClass: 'btn-info',
+            cancelButtonClass: 'btn-danger'
+        });
+    });</pre>                    
+                    <p><button id="ConfirmButton5" class="btn btn-primary">View demo</button></p>
+                </div>
+                <div class="span12">
+                    <h3>Hide header close button</h3>
+                    <pre class="prettyprint">
+    $('#ConfirmButton6').on('click', function (e) {
+        $.confirm('Are you sure you want to proceed?', {
+            title: 'Confirm dialog',
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No',
+            showHeaderCloseButton: false
+        });
+    });</pre>                    
+                    <p><button id="ConfirmButton6" class="btn btn-primary">View demo</button></p>
+                </div>
+                <div class="span12">
+                    <h3>Hide header</h3>
+                    <pre class="prettyprint">
+    $('#ConfirmButton7').on('click', function (e) {
+        $.confirm('Are you sure you want to proceed?', {
+            title: 'Confirm dialog',
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No',
+            showHeader: false
+        });
+    });</pre>                    
+                    <p><button id="ConfirmButton7" class="btn btn-primary">View demo</button></p>
+                </div>
+                <div class="span12">
+                    <h3>Show icons on buttons</h3>
+                    <pre class="prettyprint">
+    $('#ConfirmButton8').on('click', function (e) {
+        $.confirm('Are you sure you want to proceed?', {
+            title: 'Confirm dialog',
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No',
+            confirmButtonIcon:'<i class="icon-user icon-white"></i>',
+            cancelButtonIcon: '<i class="icon-trash icon-black"></i>'
+        });
+    });</pre>                    
+                    <p><button id="ConfirmButton8" class="btn btn-primary">View demo</button></p>
+                </div>
+                <div class="span12">
+                    <h3>Reverse buttons order</h3>
+                    <pre class="prettyprint">
+    $('#ConfirmButton9').on('click', function (e) {
+        $.confirm('Are you sure you want to proceed?', {
+            title: 'Confirm dialog',
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No',
+            reverseButtonsOrder:true
+        });
+    });</pre>                    
+                    <p><button id="ConfirmButton9" class="btn btn-primary">View demo</button></p>
                 </div>
             </div>
         </div>
