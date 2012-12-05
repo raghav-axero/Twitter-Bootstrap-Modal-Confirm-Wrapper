@@ -6,4 +6,4 @@ A simple wrapper for confirm modal based Twitter Bootstrap modal.
 Demo
 =========================================
 
-http://jsfiddle.net/raghav_khunger/2R9MU/6/embedded/result/
+http://jsfiddle.net/raghav_khunger/2R9MU/7/embedded/result/
