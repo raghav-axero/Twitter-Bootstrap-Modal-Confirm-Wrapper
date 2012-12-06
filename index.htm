@@ -13,12 +13,12 @@
     <script src="assets/js/bootstrap-confirm.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
-            $('#ConfirmButton1').on('click', function(e) {
+            $('#ConfirmButton1').on('click', function (e) {
                 $.confirm('This is a simple confirm message.');
             });
             $('#ConfirmButton2').on('click', function (e) {
                 $.confirm('Are you sure you want to proceed?', {
-                    title:'Confirm dialog'
+                    title: 'Confirm dialog'
                 });
             });
             $('#ConfirmButton3').on('click', function (e) {
@@ -33,10 +33,10 @@
                     title: 'Confirm dialog',
                     confirmButtonText: 'Yes, I want to',
                     cancelButtonText: 'No, I am not',
-                    onConfirm:function() {
+                    onConfirm: function () {
                         console.log('You selected confirm button');
                     },
-                    onCancel:function() {
+                    onCancel: function () {
                         console.log('You selected cancel button');
                     }
                 });
@@ -75,14 +75,28 @@
                     cancelButtonIcon: '<i class="icon-trash icon-black"></i>'
                 });
             });
-            $('#ConfirmButton9').on('click', function (e) {
+            $('#ConfirmButton9').on('click', function(e) {
                 $.confirm('Are you sure you want to proceed?', {
                     title: 'Confirm dialog',
                     confirmButtonText: 'Yes',
                     cancelButtonText: 'No',
                     reverseButtonsOrder: true
                 });
-            });            
+            });
+            $('#ConfirmButton10').on('click', function (e) {
+                $.confirm('Are you sure you want to proceed?', {
+                    title: 'Confirm dialog',
+                    confirmButtonText: 'Yes',
+                    cancelButtonText: 'No',
+                    hideOnConfirm: false,
+                    onConfirm: function () {
+                        var modal = $(this);
+                        $.get('index.htm', function (data) {
+                            modal.modal('hide');
+                        });
+                    }
+                });
+            });
         });
     </script>
 </head>
@@ -91,7 +105,7 @@
             <div class="hero-unit">
         <h1>Twitter Bootstrap confirm modal</h1>
         <p>A simple wrapper for confirm modal based Twitter Bootstrap modal.</p>
-        
+        <p><a class="btn btn-primary btn-large" href="https://github.com/raghav-khunger/Twitter-Bootstrap-Modal-Confirm-Wrapper/blob/master/assets/js/bootstrap-confirm.js#L117">Learn more »</a></p>
       </div>
             <div class="row">
                 <div class="span12">
@@ -102,7 +116,7 @@
     });</pre>
                     <p><button id="ConfirmButton1" class="btn btn-primary">View demo</button></p>
                 </div>
-            <br/><br/>
+                <br/><br/>
                 <div class="span12">
                     <h3>Add custom title</h3>
                     <pre class="prettyprint">
@@ -113,7 +127,7 @@
     });</pre>                    
                     <p><button id="ConfirmButton2" class="btn btn-primary">View demo</button></p>
                 </div>
-            <br/><br/>
+                <br/><br/>
                 <div class="span12">
                     <h3>Modify button's text</h3>
                     <pre class="prettyprint">
@@ -126,7 +140,7 @@
     });</pre>                    
                     <p><button id="ConfirmButton3" class="btn btn-primary">View demo</button></p>
                 </div>
-            <br/><br/>
+                <br/><br/>
                 <div class="span12">
                     <h3>Add button's callbacks</h3>
                     <pre class="prettyprint">
@@ -211,6 +225,26 @@
         });
     });</pre>                    
                     <p><button id="ConfirmButton9" class="btn btn-primary">View demo</button></p>
+                </div>
+            
+                <div class="span12">
+                    <h3>Close modal from with in button's callback </h3>
+                    <pre class="prettyprint">
+    $('#ConfirmButton10').on('click', function (e) {
+        $.confirm('Are you sure you want to proceed?', {
+            title: 'Confirm dialog',
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No',
+            hideOnConfirm: false,
+            onConfirm: function () {
+                var modal = $(this);
+                $.get('index.htm', function (data) {
+                    modal.modal('hide');
+                });
+            }
+        });
+    });</pre>                    
+                    <p><button id="ConfirmButton10" class="btn btn-primary">View demo</button></p>
                 </div>
             </div>
         </div>

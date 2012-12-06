@@ -36,6 +36,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         var confirmButton = $(options.confirmButton);
         var cancelButton = $(options.cancelButton);
 
+        var close = function() {
+            modal.modal('hide');
+        };
         // Append header
         if (options.title && options.showHeader) {
             title.append(options.title);
@@ -73,7 +76,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             }
             confirmButton.on('click', function() {
                 if (options.onConfirm != null) {
-                    options.onConfirm();
+                    options.onConfirm.apply(modal);
                     if (options.hideOnConfirm) {
                         modal.modal('hide');
                     }
@@ -125,7 +128,8 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         showFooter: true,
 
         // True to show the header close button, false to hide it
-        showHeaderCloseButton: true,        
+        showHeaderCloseButton: true,  
+        
         // True to hide modal after confirm callback is complete. 
         // Set this to false if the confirm callback contains ajax call 
         // and hide the modal manually in the success callback of ajax call.
