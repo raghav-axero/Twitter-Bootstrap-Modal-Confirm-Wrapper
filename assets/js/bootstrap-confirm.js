@@ -24,8 +24,19 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
     $.confirm = function(message, options) {
-        options = $.extend({}, $.confirm.defaults, options);
-
+        ///	<summary>
+        /// Wrapper to show confirm modal using Twitter bootstrap.
+        ///	</summary>
+        ///	<param name="message" type="String">The confirm message</param>
+        ///	<param name="options" type="Object">Can be a confirm function or options for confirm modal</param>
+        
+        if (typeof(options) == 'function') {
+            var onConfirm = options;
+            options = $.confirm.defaults;
+            options.onConfirm = onConfirm;
+        } else {
+            options = $.extend({}, $.confirm.defaults, options);
+        }
         // Variable declarations
         var modal = $(options.container);
         var header = $(options.headerContainer);

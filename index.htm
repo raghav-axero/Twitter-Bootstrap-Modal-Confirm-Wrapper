@@ -75,7 +75,7 @@
                     cancelButtonIcon: '<i class="icon-trash icon-black"></i>'
                 });
             });
-            $('#ConfirmButton9').on('click', function(e) {
+            $('#ConfirmButton9').on('click', function (e) {
                 $.confirm('Are you sure you want to proceed?', {
                     title: 'Confirm dialog',
                     confirmButtonText: 'Yes',
@@ -95,6 +95,12 @@
                             modal.modal('hide');
                         });
                     }
+                });
+            });
+            $('#ConfirmButton11').on('click', function (e) {
+                $.confirm('Are you sure you want to proceed?', function () {
+                    var modal = $(this);
+                    console.log('You selected confirm button');
                 });
             });
         });
@@ -245,6 +251,17 @@
         });
     });</pre>                    
                     <p><button id="ConfirmButton10" class="btn btn-primary">View demo</button></p>
+                </div>
+                <div class="span12">
+                    <h3>Another way to call confirm by passing just message and confirm button click function</h3>
+                    <pre class="prettyprint">
+$('#ConfirmButton11').on('click', function (e) {
+    $.confirm('Are you sure you want to proceed?', function () {
+        var modal = $(this);
+        console.log('You selected confirm button');
+    });
+});</pre>                    
+                    <p><button id="ConfirmButton11" class="btn btn-primary">View demo</button></p>
                 </div>
             </div>
         </div>
