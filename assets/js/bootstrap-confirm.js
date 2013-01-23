@@ -53,9 +53,11 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		// Append header.
 		if (options.title && options.showHeader) {
 			title.append(options.title);
+
 			if (options.showHeaderCloseButton) {
 				header.append(options.headerCloseButton);
 			}
+
 			header.append(title);
 			modal.append(header);
 		}
@@ -155,7 +157,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		hideOnConfirm: true,
 
 		// Placeholder for modal.
-		container: '<div class="modal"></div>',
+		container: '<div class="modal hide fade"></div>',
 
 		// Placeholder for header.
 		headerContainer: '<div class="modal-header"></div>',
